@@ -14,16 +14,7 @@ import { GameProvider } from '../providers/game/game';
 import { LotsProvider } from '../providers/lots/lots';
 import { PlayersProvider } from '../providers/players/players';
 
-
-export const firebaseConfig = {
-  apiKey: "AIzaSyBCrxz-gbO1Gfn1tSRR9-_z7gGVBGncaRA",
-  authDomain: "lefroidplay.firebaseapp.com",
-  databaseURL: "https://lefroidplay.firebaseio.com",
-  projectId: "lefroidplay",
-  storageBucket: "lefroidplay.appspot.com",
-  messagingSenderId: "904235419076"
-};
-
+import { firebaseConfig } from './configs';
 
 @NgModule({
   declarations: [
