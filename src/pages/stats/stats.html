@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button color="danger" icon-right (click)="resetScores()">
+        Ré-initaliser les lots
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>stats</ion-title>
+    <ion-buttons end>
+      <button ion-button color="secondary" icon-right (click)="fetchData()">
+        Rafraichir nombre de joueurs
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid class="table-grid">
+    <ion-row  class="table-head">
+      <ion-col class="table-col align-items"  align-self-center>Jour</ion-col>
+      <ion-col *ngFor="let key of lotsListObj" class="table-col align-items"  align-self-center>{{lotsList[key].label_admin}}</ion-col>
+      <ion-col class="table-col align-items"  align-self-center>Total Lots</ion-col>
+      <ion-col class="table-col align-items"  align-self-center>Total Joueurs</ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let score of statsList" class="table-tr" >
+      <ion-col class="table-col align-items" ><span>{{score.day}}</span></ion-col>
+      <ion-col *ngFor="let key of lotsListObj" class="table-col align-items">{{score[key]}}</ion-col>
+      <ion-col class="table-col align-items" ><span>{{score.total}}</span></ion-col>
+      <ion-col class="table-col align-items" ><span>{{score.playerCount}}</span></ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

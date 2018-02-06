@@ -1,18 +1,80 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Paramétrages</ion-title>
   </ion-navbar>
+
 </ion-header>
+<ion-content >
+  <div *ngIf="settings" class="main-wrapper mode-{{settings.messagingENV}}" padding>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-label>Environement (DEV ou PROD)</ion-label>
+          <ion-toggle [(ngModel)]="envMode" (ionChange)="envModeChange($event)" ></ion-toggle>
+        </ion-item>
+      </ion-col>
+    </ion-row>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+    <ion-row>
+      <ion-col col-11>
+        <ion-item>
+          <ion-label>Nom de l'album photo</ion-label>
+          <ion-input type="text" [(ngModel)]="settings.album" ></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-1>
+        <button ion-button secondary (click)="update({album:settings.album})" icon-only>
+          <ion-icon name="ios-cloud-upload"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-item>
+          <ion-label>Date de tri des messages envoyés</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-5>
+        <ion-item>
+          <ion-label>Du</ion-label>
+          <ion-input type="text" placeholder="YYYY-MM-DD (ex:2017-09-18)" [(ngModel)]="settings.startDate" ></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6>
+        <ion-item>
+          <ion-label>Au</ion-label>
+          <ion-input type="text" placeholder="YYYY-MM-DD (ex:2017-09-18)" [(ngModel)]="settings.endDate" ></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-1>
+        <button ion-button secondary (click)="updateDateFilter()" icon-only>
+          <ion-icon name="ios-cloud-upload"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <button ion-button class="get-sms" (click)="fetchTwilioData()">
+          Afficher le nombre de SMS envoyé pendant la période de jeu
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="twilioData">
+      <ion-col col-4>
+        Messages envoyés : {{messagesInPeriod.length}}
+      </ion-col>
+      <ion-col col-4>
+        Messages failure : {{failedMessages.length}}
+      </ion-col>
+    </ion-row>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  </div>
 </ion-content>

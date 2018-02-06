@@ -1,0 +1,8 @@
+
+App Thinning Size Report for All Variants of LeFroidPlay
+
+Variant: LeFroidPlay-iPad (5th generation).ipa
+Supported devices: iPad (5th generation)
+App + On Demand Resources size: 4.5 MB compressed, 13.6 MB uncompressed
+App size: 4.5 MB compressed, 13.6 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed

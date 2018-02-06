@@ -1,0 +1,62 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{pageTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button color="danger" icon-right (click)="reset()">
+        Effacer tous les joueurs
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid class="table-grid">
+    <ion-row  class="table-head">
+      <ion-col class="table-col align-items" col-2 align-self-center>Date</ion-col>
+      <ion-col class="table-col align-items" col-4 align-self-center>Nom</ion-col>
+      <ion-col class="table-col align-items" col-3 align-self-center>Lot</ion-col>
+      <ion-col class="table-col align-items" col-2 align-self-center>Numéro</ion-col>
+      <ion-col class="table-col align-items" col-1 align-self-center>Action</ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let player of playersList | paginate: { itemsPerPage: 10, currentPage: p }" class="table-tr" >
+      <ion-col class="table-col align-items" col-2><span>{{player.playingDay}} - {{player.time}}</span></ion-col>
+      <ion-col class="table-col align-items" col-4><span>{{player.nom}}</span></ion-col>
+      <ion-col class="table-col align-items" col-3><span>{{player.lot}}</span></ion-col>
+      <ion-col class="table-col align-items" col-2><span>{{player.tel}}</span></ion-col>
+      <ion-col class="table-col align-items" col-1>
+        <button ion-button icon-only clear (click)="delete(player)">
+          <ion-icon color="danger" name="trash"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-toolbar>
+    <ion-buttons end>
+      <button ion-button color="positive" icon-right (click)="exportCsv()">
+        Exporter tous les joueurs
+        <ion-icon name="download"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-content>

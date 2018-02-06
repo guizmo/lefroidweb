@@ -1,0 +1,25 @@
+page-download {
+  height: 100vh;
+  width: 100vh;
+  background: url('../assets/img/footer-repeat.png') repeat top left ,
+  linear-gradient(135deg, #09004b 0%,#231C55 100%);
+
+  div{
+    height: 100vh;
+    width: 100%;
+    opacity:1 !important;
+    background: linear-gradient(135deg, #a9225e 0%, rgba(99,52,135,0.75) 69%, rgba(35,28,86,0) 100%);
+
+  }
+
+  ion-grid, ion-row{
+    height: 100%;
+  }
+
+  .button-effect{
+    display: none !important;
+  }
+
+
+
+}

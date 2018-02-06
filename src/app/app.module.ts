@@ -3,32 +3,51 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { Angular2Csv } from 'angular2-csv/Angular2-csv'
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { UserProvider } from '../providers/user/user';
+import { GameProvider } from '../providers/game/game';
+import { LotsProvider } from '../providers/lots/lots';
+import { PlayersProvider } from '../providers/players/players';
+
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyBCrxz-gbO1Gfn1tSRR9-_z7gGVBGncaRA",
+  authDomain: "lefroidplay.firebaseapp.com",
+  databaseURL: "https://lefroidplay.firebaseio.com",
+  projectId: "lefroidplay",
+  storageBucket: "lefroidplay.appspot.com",
+  messagingSenderId: "904235419076"
+};
+
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     ListPage
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     ListPage
   ],
   providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    UserProvider,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GameProvider,
+    LotsProvider,
+    PlayersProvider
   ]
 })
 export class AppModule {}

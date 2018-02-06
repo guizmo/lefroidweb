@@ -24,3 +24,7 @@ $ ionic cordova run ios
 
 Substitute ios for android if not on a Mac.
 
+DEPLOY FOR PROD:
+-> npm run build #https://github.com/ionic-team/ionic-app-scripts
+-> firebase serve
+-> firebase deploy

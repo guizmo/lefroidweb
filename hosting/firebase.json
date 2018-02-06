@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "public": "app",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/archives/**",
+      "**/LeFroidPlayAdmin/**",
+      "**/node_modules/**"
+    ]
+  }
+}

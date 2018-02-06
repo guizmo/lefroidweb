@@ -1,0 +1,103 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{pageTitle}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid class="table-grid">
+    <ion-row  class="table-head">
+      <ion-col col-1 class="table-col align-items"  align-self-center>ID</ion-col>
+      <ion-col col-2 class="table-col align-items"  align-self-center>Admin label</ion-col>
+      <ion-col class="table-col align-items"  align-self-center>Label *</ion-col>
+      <ion-col col-2 class="table-col align-items"  align-self-center>Quantité total</ion-col>
+      <ion-col col-2 class="table-col align-items"  align-self-center>Quantité Gagné</ion-col>
+      <ion-col col-1 class="table-col align-items"  align-self-center>&nbsp;</ion-col>
+    </ion-row>
+    <!-- <ion-row *ngFor="let key of arrayOfKeys; let i = index;" class="table-tr" >
+      <ion-col class="table-col align-items" ><span>{{lotsList[key].id}}</span></ion-col>
+      <ion-col class="table-col align-items"><span>{{lotsList[key].label_admin}}</span></ion-col>
+      <ion-col class="table-col align-items" ><span>{{lotsList[key].label}}</span></ion-col>
+      <ion-col class="table-col align-items" ><span>{{lotsList[key].limitPerDay}}</span></ion-col>
+      <ion-col class="table-col align-items" ><span>{{lotsList[key].quantity}}</span></ion-col>
+    </ion-row> -->
+
+    <ion-row *ngFor="let key of arrayOfKeys; let i = index;" class="table-tr" >
+      <ion-col col-1 class="table-col align-items">
+        <span>{{lotsList[key].id}}</span>
+      </ion-col>
+      <ion-col col-2 class="table-col align-items" >
+        <ion-input type="text" placeholder="{{lotsList[key].label_admin}}" [(ngModel)]="lotsList[key].label_admin" ></ion-input>
+      </ion-col>
+      <ion-col class="table-col align-items">
+        <ion-input type="text" placeholder="{{lotsList[key].label}}" [(ngModel)]="lotsList[key].label" ></ion-input>
+      </ion-col>
+      <ion-col col-2 class="table-col align-items">
+        <ion-input type="text" placeholder="{{lotsList[key].quantity}}" [(ngModel)]="lotsList[key].quantity" ></ion-input>
+      </ion-col>
+      <ion-col col-2 class="table-col align-items">
+        <span *ngIf="scores">{{scores[key]}}</span>
+      </ion-col>
+      <ion-col col-1 class="table-col align-items">
+        <button ion-button block (click)="removeLot(key)" color="light" icon-only>
+          <ion-icon name="trash" color="danger"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="table-tr">
+      <ion-col>
+        <button ion-button block (click)="saveLots()" color="secondary">
+          Enregistrer
+        </button>
+      </ion-col>
+      <ion-col class="table-col align-items" col-1>
+        <button ion-button block (click)="addLot()" icon-only color="light">
+          <ion-icon name="add-circle" color="secondary"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <p>* Le "label" est utilisé pour composer le SMS. la premiere parti est dans les paramètres du jeu (ex: JEU ORANGINA. Tu as gagné 1 clé USB. Récupère tout de suite ton lot à la caisse)</p>
+  <!-- <form *ngIf="lotsForm" [formGroup]="lotsForm">
+    <ion-grid class="table-grid">
+      <ion-row  class="table-head">
+        <ion-col class="table-col align-items"  align-self-center>ID</ion-col>
+        <ion-col class="table-col align-items"  align-self-center>Admin label</ion-col>
+        <ion-col class="table-col align-items"  align-self-center>Label*</ion-col>
+        <ion-col class="table-col align-items"  align-self-center>Quantité</ion-col>
+      </ion-row>
+
+        <div formArrayName="lots" *ngFor="let lot of lotsForm.get('lots').controls; let i = index;"  >
+          <ion-row [formGroupName]="i" class="table-tr" >
+          <ion-col class="table-col align-items" >
+            <ion-input formControlName="id" placeholder="id"></ion-input>
+          </ion-col>
+          <ion-col class="table-col align-items">
+            <ion-input formControlName="label" placeholder="label"></ion-input>
+          </ion-col>
+          <ion-col class="table-col align-items" >
+            <ion-input formControlName="label_admin" placeholder="label_admin"></ion-input>
+          </ion-col>
+          <ion-col class="table-col align-items" >
+            <ion-input formControlName="limitPerDay" placeholder="limitPerDay"></ion-input>
+          </ion-col>
+          <ion-col class="table-col align-items" >
+            <ion-input formControlName="quantity" placeholder="quantity"></ion-input>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-grid>
+
+
+  </form> -->
+
+</ion-content>

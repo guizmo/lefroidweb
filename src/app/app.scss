@@ -1,16 +1,84 @@
-// http://ionicframework.com/docs/theming/
+.split-pane-md.split-pane-visible > .split-pane-side{
+  min-width: 200px;
+  max-width: 14%;
+}
+.login-modal, .site_loading{
+  background: url('../assets/img/footer-repeat.png') repeat top left ,
+  linear-gradient(135deg, #09004b 0%,#231C55 100%);
+  ion-backdrop{
+    opacity:1 !important;
+    background: linear-gradient(135deg, #a9225e 0%, rgba(99,52,135,0.75) 69%, rgba(35,28,86,0) 100%);
+  }
+}
+
+body{
+  font-family: 'Proxima Nova';
+}
+
+ion-menu{
+  ion-content .scroll-content{
+    overflow: hidden;
+    .item-divider{
+      cursor: pointer;
+      &.active, &:hover{
+        background-color: $primary;
+        .label{
+          color: #fff ;
+        }
+      }
+    }
+
+    .item-block.active, .item-block:hover{
+      background-color: $primary;
+      .label{
+        color: #fff ;
+      }
+    }
 
 
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+    ion-item-group{
+      .item-divider{
+        font-size: 1.6rem;
+        font-weight: normal;
+        text-transform: none;
+        color: #000;
+      }
+      button.item-block{
+        display: none;
+        .label{
+          padding-left: 15px;
+        }
+        &.show{
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+$border-color: lighten($list-ios-border-color, 10%);
+.table-grid{
+  border-bottom: 1px solid $border-color;
+  padding: 0;
+  padding-top: 5px;
+  margin-bottom: 5px;
+}
+.table-head, .table-tr{
+  border: 1px solid $border-color;
+  border-bottom: none;
+  border-right: none;
+  &.table-head{
+    .table-col{
+      font-weight: bold;
+    }
+  }
+  .table-col{
+    border-right: 1px solid $border-color;
+    border-left: none;
+
+    &.align-items{
+      display: flex;
+      align-items: center;
+    }
+  }
+}

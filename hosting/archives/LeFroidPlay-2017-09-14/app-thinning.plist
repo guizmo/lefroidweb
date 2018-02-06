@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>variants</key>
+	<dict>
+		<key>LeFroidPlay-iPad (5th generation).ipa</key>
+		<dict>
+			<key>limitUncompressedInitialPrefetchedODR</key>
+			<integer>2147483648</integer>
+			<key>onDemandResourcesAssetPacks</key>
+			<dict/>
+			<key>sizeCompressedApp</key>
+			<integer>4454219</integer>
+			<key>sizeCompressedAppAndODR</key>
+			<integer>4454219</integer>
+			<key>sizeCompressedODR</key>
+			<integer>0</integer>
+			<key>sizeUncompressedApp</key>
+			<integer>13592955</integer>
+			<key>sizeUncompressedAppAndODR</key>
+			<integer>13592955</integer>
+			<key>sizeUncompressedInitialPrefetchedODR</key>
+			<integer>0</integer>
+			<key>sizeUncompressedInitialPrefetchedODRExceedsLimit</key>
+			<false/>
+			<key>sizeUncompressedODR</key>
+			<integer>0</integer>
+			<key>tagsUncompressedInitialPrefetchedODR</key>
+			<array/>
+			<key>variantIds</key>
+			<array>
+				<string>iPad6,12</string>
+				<string>iPad6,11</string>
+			</array>
+			<key>variantNames</key>
+			<array>
+				<string>iPad (5th generation)</string>
+				<string>iPad (5th generation)</string>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,115 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{pageTitle}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="parametersForm" (submit)="parametersFormSubmit()" novalidate>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Longueure du jeu (Jours)</ion-label>
+          <ion-input #days formControlName="days" type="number" placeholder="14" [class.invalid]="!parametersForm.controls.days.valid && parametersForm.controls.days.dirty"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Estimation participants</ion-label>
+          <ion-input #estimate formControlName="estimate" type="number" placeholder="1500" [class.invalid]="!parametersForm.controls.estimate.valid && parametersForm.controls.estimate.dirty"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Ratio de pondération *</ion-label>
+          <ion-input #pondRation formControlName="pondRation" type="number" placeholder="1.5" [class.invalid]="!parametersForm.controls.pondRation.valid && parametersForm.controls.pondRation.dirty"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Date début</ion-label>
+          <ion-input #starDate formControlName="starDate" type="text" placeholder="2017-10-01" [class.invalid]="!parametersForm.controls.starDate.valid && parametersForm.controls.starDate.dirty"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Date fin</ion-label>
+          <ion-input #endDate formControlName="endDate" type="text" placeholder="2017-10-20" [class.invalid]="!parametersForm.controls.endDate.valid && parametersForm.controls.endDate.dirty"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Heure début</ion-label>
+          <ion-input #starTime formControlName="starTime" type="number" placeholder="8" [class.invalid]="!parametersForm.controls.starTime.valid && parametersForm.controls.starTime.dirty"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Heure fin</ion-label>
+          <ion-input #endTime formControlName="endTime" type="number" placeholder="20" [class.invalid]="!parametersForm.controls.endTime.valid && parametersForm.controls.endTime.dirty"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Message gagné(SMS)</ion-label>
+          <ion-input #message formControlName="message" type="text" placeholder="Bravo c'est gagné" [class.invalid]="!parametersForm.controls.message.valid && parametersForm.controls.message.dirty"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Message perdu (SMS)</ion-label>
+          <ion-input #messageLost formControlName="messageLost" type="text" placeholder="Dommage !" [class.invalid]="!parametersForm.controls.messageLost.valid && parametersForm.controls.messageLost.dirty"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Message gagné (appli)</ion-label>
+            <ion-input #messagesTypesWon formControlName="messagesTypesWon" type="text" placeholder="Bravo c'est gagné" [class.invalid]="!parametersForm.controls.messagesTypesWon.valid && parametersForm.controls.messagesTypesWon.dirty"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Message perdu (appli)</ion-label>
+          <ion-input #messagesTypesLost formControlName="messagesTypesLost" type="text" placeholder="Dommage !" [class.invalid]="!parametersForm.controls.messagesTypesLost.valid && parametersForm.controls.messagesTypesLost.dirty"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button block type="submit">
+          Enregistrer
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </form>
+  <p>* le jeu se déroule de 8 a 20h soit 12h de jeu. A 10h il reste 10h de jeu donc si le ration est "1.5" 10h/1.5=6.66 (arrondit au supèrieur) . Donc 1 chance sur 7).
+  A 15h il reste 5h de jeu (5h/1,5=3.33) soit 1 chance sur 4 de gagner. Ce système peemet d'augmenter les chances de gagner au fur a mesure que le jeu progresse. Le systeme est bloqué a un minimum de 1/2 chances de gagner.</p>
+</ion-content>
